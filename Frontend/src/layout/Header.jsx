@@ -1,5 +1,5 @@
 import React from 'react';
-import LOGO from '../assets/images/argentBankLogo.webp'; // Assurez-vous que le chemin est correct
+import LOGO from '../assets/images/argentBankLogo.webp';
 
 export function Header() {
   return (
