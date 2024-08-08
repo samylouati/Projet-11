@@ -1,3 +1,9 @@
+#root{
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
 html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -71,6 +77,7 @@ body {
 }
 
 .hero {
+  background-image: url('../img/bank-tree.jpeg');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -78,10 +85,10 @@ body {
   position: relative;
 }
 
-.hero img{
-  object-fit: cover;
-  width: 100%;
+.hero img {
   height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .hero-content {
