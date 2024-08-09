@@ -6,19 +6,20 @@ html {
   color: #2c3e50;
 }
 
-body, #root {
+body, #root, .Projet11, main {
   margin: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
-.main {
-  flex: 1;
+main {
+  height: 100%;
 }
 
 .bg-dark {
   background-color: #12002b;
+  height: 100%;
 }
 
 .sr-only {
@@ -71,7 +72,7 @@ body, #root {
 }
 
 .hero {
-  background-image: url('../img/bank-tree.jpeg');
+  background-image: url('../images/bank-tree.webp');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -207,9 +208,8 @@ body, #root {
   justify-content: center;
   border-top: 2px solid #ccc;
   padding: 2rem 0 1.5rem;
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  background-color: white;
 }
 
 .footer-text {

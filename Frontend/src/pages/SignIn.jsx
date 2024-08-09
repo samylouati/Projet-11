@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export function SignIn() {
   return (
-    <div>
-      <main className="main bg-dark">
+    
+      <div className="bg-dark">
         <section className="sign-in-content">
           <i className="fa fa-user-circle sign-in-icon"></i>
           <h1>Sign In</h1>
@@ -25,7 +25,7 @@ export function SignIn() {
             {/* Remplacez Link par <button className="sign-in-button">Sign In</button> si vous voulez un bouton fonctionnel */}
           </form>
         </section>
-      </main>
-    </div>
+      </div>
+  
   );
 }

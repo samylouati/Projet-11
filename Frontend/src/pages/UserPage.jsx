@@ -6,7 +6,7 @@ import { AccountSection } from './../components/AccountSection';
 export const UserPage = () => {
   return (
     <div className="UserPage">
-      <main className="main bg-dark">
+      <section className="main bg-dark">
         <UserHeader />
         <h2 className="sr-only">Accounts</h2>
         <AccountSection 
@@ -24,7 +24,7 @@ export const UserPage = () => {
           amount="$184.30"
           description="Current Balance"
         />
-      </main>
+      </section>
     </div>
   );
 };
