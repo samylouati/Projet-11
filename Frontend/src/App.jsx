@@ -9,16 +9,18 @@ import { Footer } from "./layout/Footer";
 
 function App() {
   return (
-    <Router>
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route className="signin"path="/signin" element={<SignIn />} />
-          </Routes>
-        </main>
-        <Footer /> 
-    </Router>
+    <div className="app">
+      <Router>
+          <Header />
+          <main className="main">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/signin" element={<SignIn />} />
+            </Routes>
+          </main>
+          <Footer /> 
+      </Router>
+    </div>
   );
 }
 
