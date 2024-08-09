@@ -9,10 +9,10 @@ import { Footer } from "./layout/Footer";
 
 function App() {
   return (
-    <div className="app">
+    <div>
       <Router>
           <Header />
-          <main className="main">
+          <main>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/signin" element={<SignIn />} />
