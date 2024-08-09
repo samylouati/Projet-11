@@ -292,3 +292,7 @@ body, #root {
     width: 200px;
   }
 }
+
+.UserPage {
+  height: 100%;
+}
