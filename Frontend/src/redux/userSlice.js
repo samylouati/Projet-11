@@ -2,9 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 //variable pour API 
 const API_BASE_URL = "http://localhost:3001/api/v1";
+console.log(API_BASE_URL);
+
 
 // Thunk pour la connexion
-export const login = createAsyncThunk('auth/login', async ({ email, password }) => {
+export const login = createAsyncThunk('user/login', async ({ email, password }) => {
   const response = await fetch(`${API_BASE_URL}/user/login`, {
     method: 'POST',
     headers: {
@@ -18,10 +20,11 @@ export const login = createAsyncThunk('auth/login', async ({ email, password }) 
   }
 
   const data = await response.json();
-  return data; // Cela devrait contenir le token ou le userId
+  console.log(data);
+  return data;
 });
 
-// Thunk pour récupérer le profil utilisateur (si nécessaire)
+// Thunk pour récupérer le profil utilisateur
 export const fetchUserProfile = createAsyncThunk('auth/fetchUserProfile', async (token) => {
   const response = await fetch(`${API_BASE_URL}/user/profile`, {
     method: 'POST',

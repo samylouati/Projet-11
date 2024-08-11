@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; //pour gerer l'etat du formulaire
 import { useDispatch, useSelector } from 'react-redux'; //pour envoyer les actions à Redux et acceder aux données
-import { login } from '../redux/authSlice'; //pour recuperer les données d'authentifications
+import { login } from '../redux/userSlice'; //pour recuperer les données d'authentifications
 import { Link, useNavigate } from 'react-router-dom';
 
 export function SignIn() {

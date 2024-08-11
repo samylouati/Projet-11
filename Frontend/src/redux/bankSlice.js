@@ -4,10 +4,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const API_BASE_URL_ = "http://localhost:3001/api/v1";
 
 // Action asynchrone pour récupérer les comptes
-export const fetchAccounts = createAsyncThunk('bank/fetchAccounts', async (userId) => {
-  console.log("User ID recu:", userId) //Pour verifier si l'id utilisateur est bien recu
-  
-  const response = await fetch(`${API_BASE_URL_}/accounts/${userId}`);
+export const fetchAccounts = createAsyncThunk('account/fetchAccounts', async () => {
+
+  const response = await fetch(`${API_BASE_URL_}/user/profile`);
 
   if (!response.ok) {
     throw new Error('Network response was not ok');
@@ -18,7 +17,7 @@ export const fetchAccounts = createAsyncThunk('bank/fetchAccounts', async (userI
 });
 
 const bankSlice = createSlice({
-  name: 'bank',
+  name: 'account',
   initialState: {
     accounts: [],
     status: 'idle',
