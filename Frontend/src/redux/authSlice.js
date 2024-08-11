@@ -14,7 +14,7 @@ export const login = createAsyncThunk('auth/login', async (credentials) => {
   });
 
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error('Identifiants incorrect');
   }
 
   const data = await response.json();

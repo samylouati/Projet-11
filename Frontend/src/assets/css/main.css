@@ -297,3 +297,9 @@ main {
 .UserPage {
   height: 100%;
 }
+
+.error {
+  color: red;
+  font-size: 0.875rem; 
+  font-weight: 700;
+}
