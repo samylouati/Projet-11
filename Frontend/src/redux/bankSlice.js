@@ -5,6 +5,8 @@ const API_BASE_URL_ = "http://localhost:3001/api/v1";
 
 // Action asynchrone pour récupérer les comptes
 export const fetchAccounts = createAsyncThunk('bank/fetchAccounts', async (userId) => {
+  console.log("User ID recu:", userId) //Pour verifier si l'id utilisateur est bien recu
+  
   const response = await fetch(`${API_BASE_URL_}/accounts/${userId}`);
 
   if (!response.ok) {

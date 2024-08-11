@@ -1,29 +1,43 @@
-import React from 'react';
-
-import { UserHeader } from './../components/Userlog';
-import { AccountSection } from './../components/AccountSection';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAccounts } from '../redux/bankSlice';
+import { fetchUserProfile } from '../redux/authSlice'; // Ou profileSlice si séparé
+import { UserLog } from '../components/UserLog';
+import { AccountSection } from '../components/AccountSection';
 
 export const UserPage = () => {
+  const dispatch = useDispatch();
+  const { user, token } = useSelector((state) => state.auth);
+  const { accounts, status, error } = useSelector((state) => state.bank);
+
+  useEffect(() => {
+    if (token && user) {
+      dispatch(fetchUserProfile(token)); // Récupère le profil utilisateur si nécessaire
+      dispatch(fetchAccounts(user.id)); // Utilise l'ID de l'utilisateur pour récupérer les comptes
+    }
+  }, [dispatch, token, user]);
+
+  if (status === 'loading') {
+    return <p>Loading accounts...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
   return (
     <div className="UserPage">
       <section className="main bg-dark">
-        <UserHeader />
+        <UserLog username={user ? user.firstName : 'User'} />
         <h2 className="sr-only">Accounts</h2>
-        <AccountSection 
-          title="Argent Bank Checking (x8349)"
-          amount="$2,082.79"
-          description="Available Balance"
-        />
-        <AccountSection 
-          title="Argent Bank Savings (x6712)"
-          amount="$10,928.42"
-          description="Available Balance"
-        />
-        <AccountSection 
-          title="Argent Bank Credit Card (x8349)"
-          amount="$184.30"
-          description="Current Balance"
-        />
+        {accounts.map((account) => (
+          <AccountSection
+            key={account.id}
+            title={account.name}
+            amount={account.balance}
+            description={account.description}
+          />
+        ))}
       </section>
     </div>
   );
