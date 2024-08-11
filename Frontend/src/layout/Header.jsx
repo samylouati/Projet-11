@@ -3,6 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LOGO from '../assets/images/argentBankLogo.webp';
 
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 export function Header() {
   return (
     <nav className="main-nav">

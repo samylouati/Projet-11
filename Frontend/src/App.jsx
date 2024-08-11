@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-
 import { Home } from "./pages/home";
 import { SignIn } from "./pages/SignIn";
 import { UserPage } from "./pages/UserPage";
