@@ -1,4 +1,3 @@
-// pages/UserPage.jsx
 import React, { useEffect, useState } from 'react';
 import { UserLog } from '../components/Userlog';
 import { AccountSection } from '../components/AccountSection';
@@ -28,7 +27,7 @@ export function UserPage() {
         {error && <p className="error">{error}</p>}
         {profile ? (
           <>
-            <UserLog name={profile.email} /> {/* Passe le nom à UserLog */}
+            <UserLog firstName={profile.firstName} /> {/* Passe le firstName à UserLog */}
             <h2 className="sr-only">Accounts</h2>
             <AccountSection />
           </>

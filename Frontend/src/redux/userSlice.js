@@ -1,27 +1,31 @@
-// store/userSlice.js
+// redux/userSlice.js
 import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  isLoggedIn: false,
+  token: '',
+  firstName: '', // Utilise firstName plutôt que name
+  lastName: '',
+};
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    token: null,
-    isLoggedIn: false,
-    name: '' // Ajouter un champ pour le nom de l'utilisateur
-  },
+  initialState,
   reducers: {
-    setUser(state, action) {
-      state.token = action.payload.token;
+    setUser: (state, action) => {
       state.isLoggedIn = true;
-      state.name = action.payload.name; // Stocker le nom de l'utilisateur
+      state.token = action.payload.token;
+      state.firstName = action.payload.firstName; // Met à jour firstName
+      state.lastName = action.payload.lastName;
     },
-    logout(state) {
-      state.token = null;
+    logout: (state) => {
       state.isLoggedIn = false;
-      state.name = '';
+      state.token = '';
+      state.firstName = ''; // Réinitialise firstName
+      state.lastName = '';
     }
   }
 });
 
 export const { setUser, logout } = userSlice.actions;
-
 export default userSlice.reducer;

@@ -17,8 +17,8 @@ export function SignIn() {
 
     try {
       const data = await loginUser(email, password);
-      localStorage.setItem('authToken', data.body.token); // Stocke le token correctement
-      dispatch(setUser({ token: data.body.token, name: email }));
+      const { token, firstName, lastName } = data; // Assure-toi de recevoir ces valeurs
+      dispatch(setUser({ token, firstName, lastName })); // Stocke le prénom
       navigate('/user');
     } catch (error) {
       setError('Identifiant incorrect');

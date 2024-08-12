@@ -1,4 +1,3 @@
-// layout/Header.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,7 +5,7 @@ import LOGO from '../assets/images/argentBankLogo.webp';
 import { logout } from '../redux/userSlice';
 
 export function Header() {
-  const { isLoggedIn, name } = useSelector((state) => state.user);
+  const { isLoggedIn, firstName } = useSelector((state) => state.user); // Utilise firstName
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -28,7 +27,7 @@ export function Header() {
           <>
             <Link className="main-nav-item" to="/user">
               <i className="fa fa-user-circle"></i>
-              {name}
+              {firstName} {/* Affiche le prénom */}
             </Link>
             <button className="main-nav-item" onClick={handleLogout}>
               <i className="fa fa-sign-out"></i>

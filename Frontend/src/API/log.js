@@ -33,7 +33,7 @@ export async function getUserProfile() {
 
   try {
     const response = await fetch(`${API_BASE_URL}/user/profile`, {
-      method: 'POST', // Vérifie le verbe HTTP
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}` // Ajouter le token dans l'en-tête Authorization
@@ -45,8 +45,6 @@ export async function getUserProfile() {
     }
 
     const data = await response.json();
-
-    // Log de la réponse API
     console.log('User Profile Data:', data);
 
     return data;
