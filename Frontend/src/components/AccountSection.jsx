@@ -1,6 +1,7 @@
 import React from 'react';
 
 export function AccountSection() {
+  
   return (
     <div>
         <section className="account">

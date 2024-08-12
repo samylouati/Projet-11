@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export function SignIn() {
- 
+  
   return (
     <div className="bg-dark">
       <section className="sign-in-content">
@@ -20,7 +20,7 @@ export function SignIn() {
             <input type="checkbox" id="remember-me" />
             <label htmlFor="remember-me">Remember me</label>
           </div>
-          <button type="submit" className="sign-in-button">Signi In</button>
+          <button type="submit" className="sign-in-button">Sign In</button>
         </form>
       </section>
     </div>
