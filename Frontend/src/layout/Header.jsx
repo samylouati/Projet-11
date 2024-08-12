@@ -1,12 +1,17 @@
-import React from 'react';
+// layout/Header.jsx
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import LOGO from '../assets/images/argentBankLogo.webp';
 import { logout } from '../redux/userSlice';
 
 export function Header() {
-  const { isLoggedIn, firstName } = useSelector((state) => state.user); // Utilise firstName
+  const { isLoggedIn, firstName } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log('Header firstName changed:', firstName);
+  }, [firstName]); // Log when firstName changes
 
   const handleLogout = () => {
     dispatch(logout());
