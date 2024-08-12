@@ -53,3 +53,34 @@ export async function getUserProfile() {
     throw error;
   }
 }
+
+//API pour mettre à jours le pseudo
+export async function updateUserProfile(updatedFields) {
+  const token = localStorage.getItem('authToken');
+  
+  if (!token) {
+    throw new Error('Token is missing');
+  }
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/user/profile`, {
+      method: 'PUT', 
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Ajouter le token dans l'en-tête Authorization
+      },
+      body: JSON.stringify(updatedFields) // Envoyer les données mises à jour
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update user profile');
+    }
+
+    const data = await response.json();
+    console.log('Update Profile Data:', data);
+    return data;
+  } catch (error) {
+    console.error('Error updating user profile:', error);
+    throw error;
+  }
+}
