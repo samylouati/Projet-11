@@ -11,8 +11,8 @@ export function UserPage() {
     const fetchProfile = async () => {
       try {
         const data = await getUserProfile();
-        console.log('Profile Data:', data.body); // Pour le débogage
-        setProfile(data.body); // Assure que la structure des données est correcte
+        console.log('Profile Data:', data.body); 
+        setProfile(data.body); 
       } catch (error) {
         setError('Failed to fetch user profile');
       }

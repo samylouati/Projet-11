@@ -36,7 +36,7 @@ export async function getUserProfile() {
       method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}` // Ajouter le token dans l'en-tête Authorization
+        'Authorization': `Bearer ${token}`
       }
     });
 
