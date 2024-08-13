@@ -1,4 +1,3 @@
-// layout/Header.jsx
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,7 +10,7 @@ export function Header() {
 
   useEffect(() => {
     console.log('Header firstName changed:', firstName);
-  }, [firstName]); // Log when firstName changes
+  }, [firstName]); 
 
   const handleLogout = () => {
     dispatch(logout());

@@ -1,4 +1,3 @@
-// pages/SignIn.jsx
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -17,8 +16,8 @@ export function SignIn() {
 
     try {
       const data = await loginUser(email, password);
-      const { token, firstName, lastName } = data; // Assure-toi de recevoir ces valeurs
-      dispatch(setUser({ token, firstName, lastName })); // Stocke le prénom
+      const { token, firstName, lastName } = data; 
+      dispatch(setUser({ token, firstName, lastName })); // Stocke le prénom et le token dans Redux
       navigate('/user');
     } catch (error) {
       setError('Identifiant incorrect');

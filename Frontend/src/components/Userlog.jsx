@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EditNameModal } from '../components/EditName'; // Importer le composant de la modale
+import { EditNameModal } from '../components/EditName';
 
 export function UserLog({ firstName }) {
   const [isModalOpen, setIsModalOpen] = useState(false);

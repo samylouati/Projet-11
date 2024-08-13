@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'; // Assure-toi que cette ligne est présente
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isLoggedIn: false,

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateUser } from '../redux/userSlice'; // Une action pour mettre à jour l'utilisateur
-import { updateUserProfile } from '../API/log'; // API call to update user profile
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUser } from '../redux/userSlice';
+import { updateUserProfile } from '../API/log';
 
 export function EditNameModal({ isOpen, onClose, currentFirstName }) {
   const [newFirstName, setNewFirstName] = useState(currentFirstName);
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token); // Récupérez le token depuis Redux
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Appel API pour mettre à jour le prénom
-      await updateUserProfile({ firstName: newFirstName });
-      dispatch(updateUser({ firstName: newFirstName })); // Mise à jour du prénom dans le store Redux
-      onClose(); // Ferme la modale après la mise à jour
+      await updateUserProfile({ firstName: newFirstName }, token);
+      dispatch(updateUser({ firstName: newFirstName }));
+      onClose();
     } catch (error) {
       console.error('Failed to update user profile:', error);
     }
@@ -31,11 +31,11 @@ export function EditNameModal({ isOpen, onClose, currentFirstName }) {
           <div className='firstname'>
             <p>User Name :</p>
             <input
-            type="text"
-            id="firstName"
-            value={newFirstName}
-            onChange={(e) => setNewFirstName(e.target.value)}
-            required
+              type="text"
+              id="firstName"
+              value={newFirstName}
+              onChange={(e) => setNewFirstName(e.target.value)}
+              required
             />
           </div>
           <div className='form-button'>

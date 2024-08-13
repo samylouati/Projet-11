@@ -18,22 +18,17 @@ export async function loginUser(email, password) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
+    console.error('Error during login:', error);
     throw error;
   }
 }
 
-// Appel API pour info utilisateur
-export async function getUserProfile() {
-  const token = localStorage.getItem('authToken');
-  
-  if (!token) {
-    throw new Error('Token is missing');
-  }
-
+// API pour obtenir les informations de l'utilisateur
+export async function getUserProfile(token) {
   try {
+    console.log('Token:', token); // Vérifiez que le token est présent
     const response = await fetch(`${API_BASE_URL}/user/profile`, {
-      method: 'POST', 
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
@@ -45,8 +40,6 @@ export async function getUserProfile() {
     }
 
     const data = await response.json();
-    console.log('User Profile Data:', data);
-
     return data;
   } catch (error) {
     console.error('Error fetching user profile:', error);
@@ -54,22 +47,17 @@ export async function getUserProfile() {
   }
 }
 
-//API pour mettre à jours le pseudo
-export async function updateUserProfile(updatedFields) {
-  const token = localStorage.getItem('authToken');
-  
-  if (!token) {
-    throw new Error('Token is missing');
-  }
 
+// API pour mettre à jour le profil utilisateur
+export async function updateUserProfile(updatedFields, token) {
   try {
     const response = await fetch(`${API_BASE_URL}/user/profile`, {
-      method: 'PUT', 
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}` // Ajouter le token dans l'en-tête Authorization
+        'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify(updatedFields) // Envoyer les données mises à jour
+      body: JSON.stringify(updatedFields)
     });
 
     if (!response.ok) {
@@ -77,7 +65,6 @@ export async function updateUserProfile(updatedFields) {
     }
 
     const data = await response.json();
-    console.log('Update Profile Data:', data);
     return data;
   } catch (error) {
     console.error('Error updating user profile:', error);
