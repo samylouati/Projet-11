@@ -25,17 +25,23 @@ export function EditNameModal({ isOpen, onClose, currentFirstName }) {
     <div className="modal-overlay">
       <div className="modal-content">
         <h2>Edit Name</h2>
+        <i className="fa fa-user-circle"></i>
         <form onSubmit={handleSubmit}>
           <label htmlFor="firstName">New First Name</label>
-          <input
+          <div className='firstname'>
+            <p>User Name :</p>
+            <input
             type="text"
             id="firstName"
             value={newFirstName}
             onChange={(e) => setNewFirstName(e.target.value)}
             required
-          />
-          <button type="submit">Save</button>
-          <button type="button" onClick={onClose}>Cancel</button>
+            />
+          </div>
+          <div className='form-button'>
+            <button type="submit">Save</button>
+            <button type="button" onClick={onClose}>Cancel</button>
+          </div>
         </form>
       </div>
     </div>
