@@ -16,7 +16,8 @@ export function SignIn() {
 
     try {
       const data = await loginUser(email, password);
-      const { token, firstName, lastName } = data; 
+      const { token, firstName, lastName } = {...data}; 
+      console.log(data);
       dispatch(setUser({ token, firstName, lastName })); // Stocke le prénom et le token dans Redux
       navigate('/user');
     } catch (error) {

@@ -8,11 +8,12 @@ export function UserPage() {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState('');
   const token = useSelector((state) => state.user.token); // Récupérez le token depuis Redux
-
+  console.log(token);
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const data = await getUserProfile(token);
+        console.log(data);
         setProfile(data.body);
       } catch (error) {
         setError('Failed to fetch user profile');

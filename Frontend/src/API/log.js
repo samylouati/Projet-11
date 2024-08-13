@@ -16,7 +16,8 @@ export async function loginUser(email, password) {
     }
 
     const data = await response.json();
-    return data;
+    localStorage.setItem('tokenAPI', data.token)
+    return data; 
   } catch (error) {
     console.error('Error during login:', error);
     throw error;
